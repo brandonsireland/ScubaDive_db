@@ -9,6 +9,7 @@ const routes = require('./routes');
 const db = require('./config/db');
 
 // connect to mongoose
+mongoose.Promise = global.Promise;
 mongoose.connect(db.url, {
     useNewUrlParser: true
 });

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.use('/api', require('./api'));
+router.use('/divesite', require('./divesite'));
+router.use('/location', require('./loc'));
 
 module.exports = router;
