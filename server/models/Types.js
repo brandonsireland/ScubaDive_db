@@ -5,4 +5,4 @@ const TypesSchema = new Schema( {
     types: [String]
 });
 
-module.exports = mongoose.model('TagsModel', TypesSchema);
+module.exports = mongoose.model('TypesModel', TypesSchema);
