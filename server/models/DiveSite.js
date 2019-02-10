@@ -8,6 +8,8 @@ const Region = require('./Region');
 const City = require('./City');
 const CityAdd = require('./CityAdd');
 const CityAdd2 = require('./CityAdd2');
+const Tags = require('./Tags');
+const Types = require('./Types');
 
 const DiveSiteSchema = new Schema( {
     title: String,
@@ -22,28 +24,34 @@ const DiveSiteSchema = new Schema( {
         type: Schema.Types.ObjectId, 
         ref: Continent
     },
-    country:  { 
+    country: { 
         type: Schema.Types.ObjectId, 
         ref: Country
     },
-    region:  { 
+    region: { 
         type: Schema.Types.ObjectId, 
         ref: Region
     },
-    city:  { 
+    city: { 
         type: Schema.Types.ObjectId, 
         ref: City
     },
-    city_add:  { 
+    city_add: { 
         type: Schema.Types.ObjectId, 
         ref: CityAdd
     },
-    city_add_2:  { 
+    city_add_2: { 
         type: Schema.Types.ObjectId, 
         ref: CityAdd2
     },
-    tags: [String],
-    types: [String],
+    tags: { 
+        type: Schema.Types.ObjectId, 
+        ref: Tags
+    },
+    types: { 
+        type: Schema.Types.ObjectId, 
+        ref: Types
+    },
     access: [String],
     quality: Number,
     exp_lvl: [String],
