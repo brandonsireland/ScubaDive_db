@@ -1,4 +1,8 @@
-var router = require('express').Router();
+const router = require('express').Router();
+
+// Dive Site Controller;
+
+const DiveSiteControllers = require('../../../controllers/divesite.ctrl');
 
 // api/divesite
 router.get('/', function(req, res) {

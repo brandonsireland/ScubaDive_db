@@ -18,7 +18,12 @@ const PORT = 3000;
 
 app.use('/', routes);
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+ }));
+
+ app.use(bodyParser.json());
+ 
 // app.use(helmet());
 
 app.listen(PORT, () => {

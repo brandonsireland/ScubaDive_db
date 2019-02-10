@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router({mergeParams: true});
 
 // Use region routes
-router.use('/:id/region', require('./region'));
+router.use('/:countryId/region', require('./region'));
 
 // api/continent/country
 router.get('/', function(req, res) {
@@ -11,9 +11,9 @@ router.get('/', function(req, res) {
 });
 
 // api/continent/id/country/id
-router.get('/:id', function(req, res) {
+router.get('/:countryId', function(req, res) {
 //   get specific country
-    res.send('this is a specific country with id: ' + req.params.id)
+    res.send('this is a specific country with countryId: ' + req.params.countryId)
 });
 
 module.exports = router;
