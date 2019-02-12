@@ -18,39 +18,39 @@ const DiveSiteSchema = new Schema( {
     geo_long: Number,
     country_short: { 
         type: Schema.Types.ObjectId, 
-        ref: CountryShort
+        ref: 'CountryShort'
     },
     continent: { 
         type: Schema.Types.ObjectId, 
-        ref: Continent
+        ref: 'Continent'
     },
     country: { 
         type: Schema.Types.ObjectId, 
-        ref: Country
+        ref: 'Country'
     },
     region: { 
         type: Schema.Types.ObjectId, 
-        ref: Region
+        ref: 'Region'
     },
     city: { 
         type: Schema.Types.ObjectId, 
-        ref: City
+        ref: 'City'
     },
     city_add: { 
         type: Schema.Types.ObjectId, 
-        ref: CityAdd
+        ref: 'CityAdd'
     },
     city_add_2: { 
         type: Schema.Types.ObjectId, 
-        ref: CityAdd2
+        ref: 'CityAdd2'
     },
     tags: { 
         type: Schema.Types.ObjectId, 
-        ref: Tags
+        ref: 'Tags'
     },
     types: { 
         type: Schema.Types.ObjectId, 
-        ref: Types
+        ref: 'Types'
     },
     access: [String],
     quality: Number,
