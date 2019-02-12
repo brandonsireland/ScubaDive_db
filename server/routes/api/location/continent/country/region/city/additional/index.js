@@ -1,20 +1,15 @@
 const express = require('express');
 const router = express.Router({mergeParams: true});
 
+const locationController = require('../../../../../../../../controllers/location.ctrl');
+
 // Use Country routes
 router.use('/:addId/specific', require('./specific'));
 
 // api/continent/id/country/id/region/id/city/id/additional
-router.get('/', function(req, res) {
-    //   get all countries
-    res.send('these are the additionals')
-});
+router.get('/', locationController.get_all_additionals);
 
 // api/continent/id/country/id/region/id/city/id/additional/id
-router.get('/:addId', function(req, res) {
-//   get specific country
-    res.send('this is a specific additional info with id: ' + JSON.stringify(req.params))
-
-});
+router.get('/:addId', locationController.get_additionalId);
 
 module.exports = router;
