@@ -6,7 +6,15 @@ const ContinentSchema = new Schema( {
     divesites: [{
         type: Schema.Types.ObjectId,
         ref: 'DiveSiteModel'
-    }]
+    }],
+    countries: [{
+        type: Schema.Types.ObjectId,
+        ref: 'CountryModel'
+    }],
 });
+
+ContinentSchema
+.virtual('url')
+.get(()=> 'api/location/continent/'+ this._id)
 
 module.exports = mongoose.model('ContinentModel', ContinentSchema);

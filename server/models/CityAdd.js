@@ -6,6 +6,14 @@ const CityAddSchema = new Schema( {
     divesites: [{
         type: Schema.Types.ObjectId,
         ref: 'DiveSiteModel'
+    }],
+    city: {
+        type: Schema.Types.ObjectId,
+        ref: 'CityModel'
+    },
+    city_adds2: [{
+        type: Schema.Types.ObjectId,
+        ref: 'CityAdd2Model'
     }]
 });
 

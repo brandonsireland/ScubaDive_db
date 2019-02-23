@@ -6,7 +6,11 @@ const CountryShortSchema = new Schema( {
     divesites: [{
         type: Schema.Types.ObjectId,
         ref: 'DiveSiteModel'
-    }]
+    }],
+    country: {
+        type: Schema.Types.ObjectId,
+        ref: 'CountryModel'
+    }
 });
 
 module.exports = mongoose.model('CountryShortModel', CountryShortSchema);

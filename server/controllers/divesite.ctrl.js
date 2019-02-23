@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const DiveSite = require('../models/DiveSite');
 
+
 exports.get_dive_site = (req, res, next) => {
         // update dive site in db 
 };

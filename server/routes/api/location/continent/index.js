@@ -1,15 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const locationController = require('../../../../controllers/location.ctrl');
+const continentController = require('../../../../controllers/continent.ctrl');
 
 // Use Country routes
 router.use('/:continentId/country', require('./country'));
 
 // api/continent
-router.get('/', locationController.get_all_continents)
+router.get('/', continentController.get_all_continents)
 
 // api/continent/:id
-router.get('/:continentId', locationController.get_continentId)
+router.get('/:continentId', continentController.get_continent_id)
 
 module.exports = router;

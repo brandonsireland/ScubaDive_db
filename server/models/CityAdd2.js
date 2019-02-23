@@ -6,7 +6,11 @@ const CityAddTwoSchema = new Schema( {
     divesites: [{
         type: Schema.Types.ObjectId,
         ref: 'DiveSiteModel'
-    }]
+    }],
+    city_add: {
+        type: Schema.Types.ObjectId,
+        ref: 'CityAddModel'
+    }
 });
 
 module.exports = mongoose.model('CityAddTwoModel', CityAddTwoSchema);

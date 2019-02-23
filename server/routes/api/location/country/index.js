@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router({mergeParams: true});
 
-const countryController = require('../../../../../controllers/country.ctrl');
-
-// Use region routes
-router.use('/:countryId/region', require('./region'));
+const countryController = require('../../../../controllers/country.ctrl');
 
 // api/continent/country
 router.get('/', countryController.get_all_countries);

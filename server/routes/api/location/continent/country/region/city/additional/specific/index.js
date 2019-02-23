@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router({mergeParams: true});
 
-const locationController = require('../../../../../../../../../controllers/location.ctrl');
+const specificController = require('../../../../../../../../../controllers/specific.ctrl');
 
 // api/continent/id/country/id/region/id/city/id/additional/id/additonal2
-router.get('/', locationController.get_all_specific);
+router.get('/', specificController.get_all_specific);
 
 // api/continent/id/country/id/region/id/city/id/additional/idadditonal2/id
-router.get('/:specificId', locationController.get_specificId);
+router.get('/:specificId', specificController.get_specific_id);
 
 module.exports = router;
