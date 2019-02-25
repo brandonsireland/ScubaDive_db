@@ -2,18 +2,25 @@ const router = require('express').Router();
 
 // Dive Site Controller;
 
-const DiveSiteControllers = require('../../../controllers/divesite.ctrl');
+const diveSiteController = require('../../../controllers/divesite.ctrl');
 
+// Create routes
+router.get('/create', diveSiteController.dive_site_create_get);
+router.post('/create', diveSiteController.dive_site_create_post);
+
+// Delete routes
+router.get('/:diveSiteId/delete', diveSiteController.dive_site_delete_get);
+router.post('/:diveSiteId/delete', diveSiteController.dive_site_delete_post);
+
+// Update routes
+router.get('/:diveSiteId/update', diveSiteController.dive_site_update_get);
+router.post('/:diveSiteId/update', diveSiteController.dive_site_update_post);
+
+// Get Routes
 // api/divesite
-router.get('/', function(req, res) {
-    //   get all dive sites
-    res.send('get all dive sites')
-});
+router.get('/', diveSiteController.get_all_dive_sites);
 
 // api/divesite/:id
-router.get('/:id', function(req, res) {
-//   get specific divesite
-    res.send('get this specific dive site: ' + req.params.id)
-});
+router.get('/:id', diveSiteController.get_dive_site_id);
 
 module.exports = router;
