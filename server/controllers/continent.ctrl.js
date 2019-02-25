@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const Continent = require('../models/Continent');
 
+// Get
 exports.get_all_continents = (req, res, next) => {
     // get all continents
     Continent.find({}, 'continent')
@@ -28,14 +29,35 @@ exports.get_continent_id = (req, res, next) => {
         });
 };
 
-exports.post_continent = (req, res, next) => {
-    // add continent
+// Creation
+exports.continent_create_get = (req, res, next) => {
+    // get dive site creation form
+    res.send('NOT IMPLEMENTED: Continent create GET');
 };
 
-exports.delete_continent = (req, res, next) => {
-    // delete continent
+exports.continent_create_post = (req, res, next) => {
+    // post dive site creation
+    res.send('NOT IMPLEMENTED: Continent create POST');
 };
 
-exports.update_continent = (req, res, next) => {
-    // update continent
+// Deletion
+exports.continent_delete_get = (req, res, next) => {
+    // get dive site delete form
+    res.send('NOT IMPLEMENTED: Continent delete GET');
+};
+
+exports.continent_delete_post = (req, res, next) => {
+    // post dive site delete
+    res.send('NOT IMPLEMENTED: Continent delete POST');
+};
+
+// Updating 
+exports.continent_update_get = (req, res, next) => {
+    // get dive site update form
+    res.send('NOT IMPLEMENTED: Continent update GET');
+};
+
+exports.continent_update_post = (req, res, next) => {
+    // post dive site update
+    res.send('NOT IMPLEMENTED: Continent update POST');
 };

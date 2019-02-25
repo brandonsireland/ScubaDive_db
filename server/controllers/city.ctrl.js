@@ -1,23 +1,45 @@
 const mongoose = require('mongoose');
 
+// Get
 exports.get_all_cities = (req, res) => {
     // get all cities
-    res.send('these are the cities');
+    res.send('NOT IMPLEMENTED: Cities all GET');
 };
 
 exports.get_city_id = (req, res) => {
     // get specific city
-    res.send('this is a specific city with id: ' + req.params.cityId);
+    res.send('NOT IMPLEMENTED: City by id GET');
 };
 
-exports.post_city = (req, res, next) => {
-    // add city
+// Creation
+exports.city_create_get = (req, res, next) => {
+    // get dive site creation form
+    res.send('NOT IMPLEMENTED: City create GET');
 };
 
-exports.delete_city = (req, res, next) => {
-    // delete city
+exports.city_create_post = (req, res, next) => {
+    // post dive site creation
+    res.send('NOT IMPLEMENTED: City create POST');
 };
 
-exports.update_city = (req, res, next) => {
-    // update city
+// Deletion
+exports.city_delete_get = (req, res, next) => {
+    // get dive site delete form
+    res.send('NOT IMPLEMENTED: City delete GET');
+};
+
+exports.city_delete_post = (req, res, next) => {
+    // post dive site delete
+    res.send('NOT IMPLEMENTED: City delete POST');
+};
+
+// Updating 
+exports.city_update_get = (req, res, next) => {
+    // get dive site update form
+    res.send('NOT IMPLEMENTED: City update GET');
+};
+
+exports.city_update_post = (req, res, next) => {
+    // post dive site update
+    res.send('NOT IMPLEMENTED: City update POST');
 };

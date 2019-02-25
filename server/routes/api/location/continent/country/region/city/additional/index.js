@@ -6,10 +6,22 @@ const additionalController = require('../../../../../../../../controllers/additi
 // Use Country routes
 router.use('/:addId/specific', require('./specific'));
 
-// api/continent/id/country/id/region/id/city/id/additional
-router.get('/', additionalController.get_all_additionals);
+// Create routes
+router.get('/create', additionalController.additional_create_get);
+router.post('/create', additionalController.additional_create_post);
 
-// api/continent/id/country/id/region/id/city/id/additional/id
+// Delete routes
+router.get('/:addId/delete', additionalController.additional_delete_get);
+router.post('/:addId/delete', additionalController.additional_delete_post);
+
+// Update routes
+router.get('/:addId/update', additionalController.additional_update_get);
+router.post('/:addId/update', additionalController.additional_update_post);
+
+// Get
+// Get all additionals
+router.get('/', additionalController.get_all_additionals);
+// get one additional
 router.get('/:addId', additionalController.get_additional_id);
 
 module.exports = router;

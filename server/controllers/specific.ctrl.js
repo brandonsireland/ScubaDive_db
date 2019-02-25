@@ -1,23 +1,45 @@
 const mongoose = require('mongoose');
 
-exports.get_all_specific = (req, res) => {
+// Get
+exports.get_all_specifics = (req, res) => {
     // get all specifics
-    res.send('these are the specifics');
+    res.send('NOT IMPLEMENTED: Specifics all GET');
 };
 
 exports.get_specific_id = (req, res) => {
     // get specific id
-    res.send('this is an additional info with specificId: ' + JSON.stringify(req.params));
+    res.send('NOT IMPLEMENTED: Specific by id GET');
 };
 
-exports.post_specific = (req, res, next) => {
-    // add specific
+// Creation
+exports.specific_create_get = (req, res, next) => {
+    // get dive site creation form
+    res.send('NOT IMPLEMENTED: Specific create GET');
 };
 
-exports.delete_specific = (req, res, next) => {
-    // delete specific
+exports.specific_create_post = (req, res, next) => {
+    // post dive site creation
+    res.send('NOT IMPLEMENTED: Specific create POST');
 };
 
-exports.update_specific = (req, res, next) => {
-    // update specific
+// Deletion
+exports.specific_delete_get = (req, res, next) => {
+    // get dive site delete form
+    res.send('NOT IMPLEMENTED: Specific delete GET');
+};
+
+exports.specific_delete_post = (req, res, next) => {
+    // post dive site delete
+    res.send('NOT IMPLEMENTED: Specific delete POST');
+};
+
+// Updating 
+exports.specific_update_get = (req, res, next) => {
+    // get dive site update form
+    res.send('NOT IMPLEMENTED: Specific update GET');
+};
+
+exports.specific_update_post = (req, res, next) => {
+    // post dive site update
+    res.send('NOT IMPLEMENTED: Specific update POST');
 };
