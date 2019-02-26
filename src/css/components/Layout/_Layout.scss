@@ -1,0 +1,12 @@
+.Layout {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: $secondary;
+    &__container {
+        width: 1260px;
+        max-width: 100%;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+        background-color: #fff;
+    }
+}
