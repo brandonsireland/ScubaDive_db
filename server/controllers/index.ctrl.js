@@ -13,6 +13,7 @@ const Types = require('../models/Types');
 
 exports.get_index = (req, res) => {
     async.parallel({
+        dive_site_count: callback => DiveSite.countDocuments({}, callback),
         city_count: callback => City.countDocuments({}, callback),
         city_add_count: callback => CityAdd.countDocuments({}, callback),
         city_add2_count: callback => CityAdd2.countDocuments({}, callback),
@@ -22,6 +23,6 @@ exports.get_index = (req, res) => {
         tag_count: callback => Tags.countDocuments({}, callback),
         type_count: callback => Types.countDocuments({}, callback)
     }, (err, results) => {
-        res.send('results: ' + JSON.stringify(results))
+        res.send(JSON.stringify(results))
     })
 };

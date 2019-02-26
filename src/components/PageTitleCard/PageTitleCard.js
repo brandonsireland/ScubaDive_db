@@ -1,6 +1,6 @@
 import React from 'react';
 
-const pageTitleCard = () => (
+const pageTitleCard = (props) => (
     <div className="PageTitleCard">
         <span className="PageTitleCard__heading">Page Title Goes here</span>
         <span className="PageTitleCard__subheading"> - Discover dive sites in your area!</span>

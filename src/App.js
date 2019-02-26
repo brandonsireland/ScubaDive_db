@@ -5,9 +5,7 @@ import style from './css/main.scss';
 class App extends Component {
     render() {
         return (
-            <Layout>
-                <h2>App js!</h2>
-            </Layout>
+            <Layout />
         )
     }
 }
