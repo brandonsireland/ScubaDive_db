@@ -19,8 +19,8 @@ router.get('/:countryId/update', countryController.country_update_get);
 router.post('/:countryId/update', countryController.country_update_post);
 
 // Get
-// get all countries
-router.get('/', countryController.get_all_countries);
+// get all countries from continent
+router.get('/', countryController.get_all_countries_from_continent);
 // get one country
 router.get('/:countryId', countryController.get_country_id);
 

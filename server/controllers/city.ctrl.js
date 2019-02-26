@@ -1,14 +1,42 @@
 const mongoose = require('mongoose');
 
+const City = require('../models/City');
+
 // Get
 exports.get_all_cities = (req, res) => {
     // get all cities
-    res.send('NOT IMPLEMENTED: Cities all GET');
+    City.find({}, 'city')
+        .sort([
+            ['city', 'ascending']
+        ])
+        .exec((err, cities) => {
+            if (err) {
+                return next(err)
+            }
+            res.send(cities.map(city => city))
+        });
+};
+
+exports.get_all_cities_from_region = (req, res) => {
+    // get all cities from region
+    City.find({region:req.params.regionId})
+    .exec((err, cities) => {
+        if (err) {
+            return next(err)
+        }
+        res.send(cities.map(city => city))
+    });
 };
 
 exports.get_city_id = (req, res) => {
     // get specific city
-    res.send('NOT IMPLEMENTED: City by id GET');
+    City.findById(req.params.cityId)
+        .exec((err, city) => {
+            if (err) {
+                return next(err)
+            }
+            res.send(city)
+    });
 };
 
 // Creation

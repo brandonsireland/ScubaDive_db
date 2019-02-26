@@ -5,7 +5,20 @@ const router = express.Router();
 router.use('/continent', require('./continent'));
 
 // api/country
-router.use('/country',require('./country'));
+router.use('/countries',require('./country'));
+
+//  api/regions
+router.use('/regions', require('./region'));
+
+//  api/cities
+router.use('/cities', require('./city'));
+
+// api/additionals
+router.use('/additionals', require('./additional'));
+
+// api/specifics
+router.use('/specifics', require('./specific'));
+
 
 router.get('/', function(req, res) {
     //   redirect to continent for the moment

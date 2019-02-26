@@ -4,7 +4,7 @@ const Country = require('../models/Country');
 
 // Get
 exports.get_all_countries = (req, res) => {
-    // get all countries within the continent
+    // get all countries
     Country.find({}, 'country')
         .sort([
             ['country', 'ascending']
@@ -17,19 +17,21 @@ exports.get_all_countries = (req, res) => {
         });
 };
 
-exports.get_country_id = (req, res) => {
-    // get specific country
-    Country.findById(req.params.countryId)
-        .exec((err, country) => {
+exports.get_all_countries_from_continent = (req, res) => {
+    // get all countries from continent.
+    Country.find({
+            continent: req.params.continentId
+        })
+        .exec((err, countries) => {
             if (err) {
                 return next(err)
             }
-            res.send(country)
+            res.send(countries.map(country => country))
         });
 };
 
-exports.get_countries_from_continent = (req, res) => {
-    // get all countries from continent.
+exports.get_country_id = (req, res) => {
+    // get specific country
     Country.findById(req.params.countryId)
         .exec((err, country) => {
             if (err) {

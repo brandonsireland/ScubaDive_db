@@ -1,15 +1,31 @@
 const mongoose = require('mongoose');
+
 const DiveSite = require('../models/DiveSite');
 
 // Get
 exports.get_all_dive_sites = (req, res, next) => {
         // get all dive sites
-        res.send('NOT IMPLEMENTED: Dive Site all GET');
+        DiveSite.find({}, 'title')
+        .sort([
+            ['title', 'ascending']
+        ])
+        .exec((err, divesites) => {
+            if (err) {
+                return next(err)
+            }
+            res.send(divesites.map(divesite => divesite))
+        });
 };
 
 exports.get_dive_site_id = (req, res, next) => {
         // get dive site by id
-        res.send('NOT IMPLEMENTED: Dive Site by id GET');
+        DiveSite.findById(req.params.id)
+        .exec((err, country) => {
+            if (err) {
+                return next(err)
+            }
+            res.send(country)
+        });
 };
 
 // Creation

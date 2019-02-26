@@ -19,8 +19,8 @@ router.get('/:regionId/update', regionController.region_update_get);
 router.post('/:regionId/update', regionController.region_update_post);
 
 // Get
-// get all regions
-router.get('/', regionController.get_all_regions);
+// get all regions from continent
+router.get('/', regionController.get_all_regions_from_country);
 // get one region
 router.get('/:regionId', regionController.get_region_id);
 

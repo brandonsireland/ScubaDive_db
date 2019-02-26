@@ -1,14 +1,30 @@
 const mongoose = require('mongoose');
 
+const Tag = require('../models/Tags');
 // Get
 exports.get_all_tags = (req, res) => {
     // get all tags
-    res.send('NOT IMPLEMENTED: Tags all GET');
+    Tag.find({}, 'tags')
+    .sort([
+        ['tags', 'ascending']
+    ])
+    .exec((err, tags) => {
+        if (err) {
+            return next(err)
+        }
+        res.send(tags.map(tag => tag))
+    });
 };
 
 exports.get_tag_id = (req, res) => {
     // get specific tag
-    res.send('NOT IMPLEMENTED: Tag by id GET');
+    Tag.findById(req.params.tagId)
+        .exec((err, tag) => {
+            if (err) {
+                return next(err)
+            }
+            res.send(tag)
+    });
 };
 
 // Creation

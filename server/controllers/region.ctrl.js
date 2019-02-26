@@ -1,14 +1,42 @@
 const mongoose = require('mongoose');
 
+const Region = require('../models/Region')
+
 // Get
-exports.get_all_regions = (req, res) => {
+exports.get_all_regions = (req, res, next) => {
     // get all regions
-    res.send('NOT IMPLEMENTED: Region all GET');
+    Region.find({}, 'region')
+        .sort([
+            ['region', 'ascending']
+        ])
+        .exec((err, regions) => {
+            if (err) {
+                return next(err)
+            }
+            res.send(regions.map(region => region))
+        });
 };
 
-exports.get_region_id = (req, res) => {
+exports.get_all_regions_from_country = (req, res, next) => {
+    // get all regions from country.
+    Region.find({country:req.params.countryId})
+    .exec((err, regions) => {
+        if (err) {
+            return next(err)
+        }
+        res.send(regions.map(region => region))
+    });
+}
+
+exports.get_region_id = (req, res, next) => {
     // get specific region
-    res.send('NOT IMPLEMENTED: Region by id GET');
+    Region.findById(req.params.regionId)
+        .exec((err, region) => {
+            if (err) {
+                return next(err)
+            }
+            res.send(region)
+    });
 };
 
 // Creation

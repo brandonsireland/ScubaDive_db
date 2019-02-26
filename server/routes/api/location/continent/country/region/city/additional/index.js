@@ -20,7 +20,7 @@ router.post('/:addId/update', additionalController.additional_update_post);
 
 // Get
 // Get all additionals
-router.get('/', additionalController.get_all_additionals);
+router.get('/', additionalController.get_all_additionals_from_city);
 // get one additional
 router.get('/:addId', additionalController.get_additional_id);
 

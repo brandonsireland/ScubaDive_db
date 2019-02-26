@@ -1,14 +1,42 @@
 const mongoose = require('mongoose');
 
+const CityAdd = require('../models/CityAdd');
+
 // Get
 exports.get_all_additionals = (req, res) => {
     // get all additional info
-    res.send('NOT IMPLEMENTED: Additionals all GET');
+    CityAdd.find({}, 'city_add')
+        .sort([
+            ['city_add', 'ascending']
+        ])
+        .exec((err, additionals) => {
+            if (err) {
+                return next(err)
+            }
+            res.send(additionals.map(additional => additional))
+        });
+};
+
+exports.get_all_additionals_from_city = (req, res) => {
+    // get all additional info from city
+    CityAdd.find({city:req.params.cityId})
+    .exec((err, additionals) => {
+        if (err) {
+            return next(err)
+        }
+        res.send(additionals.map(additional => additional))
+    });
 };
 
 exports.get_additional_id = (req, res) => {
     // get specific additional info
-    res.send('NOT IMPLEMENTED: Additional by id GET');
+    CityAdd.findById(req.params.addId)
+        .exec((err, additional) => {
+            if (err) {
+                return next(err)
+            }
+            res.send(additional)
+    });
 };
 
 // Creation

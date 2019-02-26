@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-// const helmet = require('helmet');
+const helmet = require('helmet');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -16,15 +17,13 @@ mongoose.connect(db.url, {
 
 const PORT = 3000;
 
-app.use('/', routes);
-
+app.use(cors());
 app.use(bodyParser.urlencoded({
     extended: true
  }));
-
  app.use(bodyParser.json());
- 
-// app.use(helmet());
+app.use(helmet());
+app.use('/', routes);
 
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`);

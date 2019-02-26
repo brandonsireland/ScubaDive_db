@@ -20,7 +20,7 @@ router.post('/:cityId/update', cityController.city_update_post);
 
 // Get
 // get all cities
-router.get('/', cityController.get_all_cities);
+router.get('/', cityController.get_all_cities_from_region);
 
 // get one city
 router.get('/:cityId', cityController.get_city_id);

@@ -1,14 +1,31 @@
 const mongoose = require('mongoose');
 
+const Type = require('../models/Types');
+
 // Get
 exports.get_all_types = (req, res) => {
     // get all types
-    res.send('NOT IMPLEMENTED: Types all GET');
+    Type.find({}, 'types')
+    .sort([
+        ['types', 'ascending']
+    ])
+    .exec((err, types) => {
+        if (err) {
+            return next(err)
+        }
+        res.send(types.map(type => type))
+    });
 };
 
 exports.get_type_id = (req, res) => {
     // get type
-    res.send('NOT IMPLEMENTED: Types by id GET');
+    Type.findById(req.params.typeId)
+        .exec((err, type) => {
+            if (err) {
+                return next(err)
+            }
+            res.send(type)
+    });
 };
 
 // Creation
