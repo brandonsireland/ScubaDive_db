@@ -7,16 +7,20 @@ const discover = (props) => {
     let transformedValues = Object.values(props.locations);
     let transformedLocations = Object.keys(props.locations)
             .map((locationKey, i) => {
-                return <DiscoverLocation key={locationKey} location={locationKey} amount={transformedValues[i]}/>
+                return <DiscoverLocation 
+                key={locationKey} 
+                location={locationKey} 
+                amount={transformedValues[i]} 
+                updatelocation={() => props.findlocation(locationKey)}/>
             });
 
     return (
-        <React.Fragment>
+        <div className="Discover">
         <DiscoverDiveSite count={ props.divesites} />
             <ul className="DiscoverLocation">
                 { transformedLocations }
             </ul>
-        </React.Fragment>
+        </div>
     )
     
 }

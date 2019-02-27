@@ -18,11 +18,9 @@ const discoverLocation = (props) => {
             break;
         case('city_add_count'):
             label = null
-            // label = 'City Additonal Info';
             break;
         case('city_add2_count'):
             label = null
-            // label = 'City more Additional Info';
             break;
         case('tag_count'):
             label = 'Tags';
@@ -39,7 +37,7 @@ const discoverLocation = (props) => {
 
     return (
         <li>
-            <a href="">{label}</a>
+            <span onClick={ props.updatelocation }>{label}</span>
             <span>: {props.amount}</span>
         </li>
         )

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TagsSchema = new Schema( {
-    tags: String,
+    title: String,
     divesites: [{
         type: Schema.Types.ObjectId,
         ref: 'DiveSiteModel'
