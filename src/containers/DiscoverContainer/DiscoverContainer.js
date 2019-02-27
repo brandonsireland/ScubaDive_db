@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 
 import Discover from '../../components/Discover/Discover';
-import Location from '../../components/Discover/Location/Location';
+import LocationList from '../../components/Discover/LocationList/LocationList';
 
 // statefull component
 class DiscoverContainer extends Component {
 
     state = {
-        divesite_count: null,
+        diveSiteCount: null,
         locations: null,
         error: false,
         showLocation: false,
@@ -18,14 +18,36 @@ class DiscoverContainer extends Component {
 
 
     componentDidMount() {
-        console.log('component did mount called')
         Axios.get('http://localhost:3000/')
             .then(response => {
-                this.setState({locations: response.data, divesite_count: response.data.dive_site_count})
+                this.setState({locations: response.data, diveSiteCount: response.data.dive_site_count})
             })
             .catch(error => {
                 this.setState({error: true})
             })
+    };
+
+    updateLocationHandler =(locationkey, locationtype) => {
+        console.log(locationkey, locationtype)
+
+        if(locationtype == 'tags' || locationtype == 'types') {
+    
+            Axios.get('http://localhost:3000/api/' + locationtype + '/' + locationkey)
+                .then(response => {
+                    console.log(response.data)
+                })
+                .catch(error => console.log(error)) 
+
+        } else {
+            
+        Axios.get('http://localhost:3000/api/location/' + locationtype + '/' + locationkey)
+                .then(response => {
+                    console.log(response.data)
+                    
+                })
+            .catch(error => console.log(error));
+            }
+
     };
 
     findLocationHandler = (location) => {
@@ -42,17 +64,12 @@ class DiscoverContainer extends Component {
         this.setState({showLocation: true});
 
         location = locations[location];
-        
-        // if type tag
-        if(location == 'tags') {
-            Axios.get('http://localhost:3000/api/tags/')
+    
+        // if type or tag
+        if(location == 'tags' || location == 'types') {
+            Axios.get('http://localhost:3000/api/' + location)
             .then(response => {
-            this.setState({clickedLocations: response.data})
-        })
-        .catch(error => console.log(error));
-        } else if(location == 'types') {
-            Axios.get('http://localhost:3000/api/types/')
-            .then(response => {
+            
             this.setState({clickedLocations: response.data})
         })
         .catch(error => console.log(error));
@@ -60,6 +77,7 @@ class DiscoverContainer extends Component {
             // if anything else
             Axios.get('http://localhost:3000/api/location/' + location)
             .then(response => {
+                console.log(response.data)
                 this.setState({clickedLocations: response.data})
             })
             .catch(error => console.log(error));
@@ -73,20 +91,22 @@ class DiscoverContainer extends Component {
 
         let discover = this.state.error ? <p>Can't load locations!</p> : null;
         let location = null;
-        if(this.state.locations && this.state.divesite_count) {
+        if(this.state.locations && this.state.diveSiteCount) {
             discover = (
                 <Discover 
                 locations={ this.state.locations } 
-                divesites={ this.state.divesite_count } 
+                divesites={ this.state.diveSiteCount } 
                 findlocation={ this.findLocationHandler }
                 />
             )
         }
         if(this.state.showLocation && this.state.clickedLocations) {
             location = (
-                <Location 
+                <LocationList 
                 locationdata={ this.state.clickedLocations } 
-                locationtitle={ this.state.titleLocation } />
+                locationtype={ this.state.titleLocation } 
+                updatelocationbykey={ this.updateLocationHandler }
+                />
             )
         }
 
