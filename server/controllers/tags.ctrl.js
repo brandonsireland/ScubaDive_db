@@ -4,7 +4,7 @@ const Tag = require('../models/Tags');
 // Get
 exports.get_all_tags = (req, res) => {
     // get all tags
-    Tag.find({}, 'tags')
+    Tag.find({}, 'tags divesites')
     .sort([
         ['tags', 'ascending']
     ])

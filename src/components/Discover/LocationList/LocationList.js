@@ -1,18 +1,18 @@
 import React from 'react';
-import Axios from 'axios';
 
 import LocationItem from './LocationItem/LocationItem';
 
 const location = (props) => {
-
+    console.log(props)
     let transformedLocations = Object.keys(props.locationdata)
             .map(locationKey => {
                 return [...Array(props.locationdata[locationKey])]
                 .map(key => {
                     let keyValues = Object.values(key)
-                    return <LocationItem 
-                    key={keyValues[0]} 
-                    title={keyValues[1]}
+                    return <LocationItem
+                    divesitecount={keyValues[0].length}
+                    key={keyValues[1]} 
+                    title={keyValues[2]}
                     updatelocationbykey={() => props.updatelocationbykey(keyValues[0], props.locationtype)}
                     />
                 });

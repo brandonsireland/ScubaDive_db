@@ -5,7 +5,7 @@ const Continent = require('../models/Continent');
 // Get
 exports.get_all_continents = (req, res, next) => {
     // get all continents
-    Continent.find({}, 'continent')
+    Continent.find({}, 'continent divesites')
         .sort([
             ['continent', 'ascending']
         ])

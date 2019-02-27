@@ -28,7 +28,7 @@ class DiscoverContainer extends Component {
     };
 
     updateLocationHandler =(locationkey, locationtype) => {
-        console.log(locationkey, locationtype)
+        // console.log(locationkey, locationtype)
 
         if(locationtype == 'tags' || locationtype == 'types') {
     
@@ -102,7 +102,7 @@ class DiscoverContainer extends Component {
         }
         if(this.state.showLocation && this.state.clickedLocations) {
             location = (
-                <LocationList 
+                <LocationList
                 locationdata={ this.state.clickedLocations } 
                 locationtype={ this.state.titleLocation } 
                 updatelocationbykey={ this.updateLocationHandler }

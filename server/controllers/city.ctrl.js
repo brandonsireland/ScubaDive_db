@@ -5,7 +5,7 @@ const City = require('../models/City');
 // Get
 exports.get_all_cities = (req, res) => {
     // get all cities
-    City.find({}, 'city')
+    City.find({}, 'city divesites')
         .sort([
             ['city', 'ascending']
         ])

@@ -5,7 +5,7 @@ const Country = require('../models/Country');
 // Get
 exports.get_all_countries = (req, res) => {
     // get all countries
-    Country.find({}, 'country')
+    Country.find({}, 'country divesites')
         .sort([
             ['country', 'ascending']
         ])

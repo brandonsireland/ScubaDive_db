@@ -36,8 +36,8 @@ const discoverLocation = (props) => {
     }
 
     return (
-        <li>
-            <span onClick={ props.updatelocation }>{label}</span>
+        <li className="DiscoverLocation" onClick={ props.updatelocation }>
+            <span>{label}</span>
             <span>: {props.amount}</span>
         </li>
         )

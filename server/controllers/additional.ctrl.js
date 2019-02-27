@@ -5,7 +5,7 @@ const CityAdd = require('../models/CityAdd');
 // Get
 exports.get_all_additionals = (req, res) => {
     // get all additional info
-    CityAdd.find({}, 'city_add')
+    CityAdd.find({}, 'city_add divesites')
         .sort([
             ['city_add', 'ascending']
         ])

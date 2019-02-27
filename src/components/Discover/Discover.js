@@ -17,7 +17,7 @@ const discover = (props) => {
     return (
         <div className="Discover">
         <DiscoverDiveSite count={ props.divesites} />
-            <ul className="DiscoverLocation">
+            <ul>
                 { transformedLocations }
             </ul>
         </div>
