@@ -20,15 +20,18 @@ class DiscoverContainer extends Component {
     componentDidMount() {
         Axios.get('http://localhost:3000/')
             .then(response => {
-                this.setState({locations: response.data, diveSiteCount: response.data.dive_site_count})
+                this.setState({locations: response.data, diveSiteCount: response.data.dive_site_count});
+                
+                //Updates PageTitleCard information 
+                this.props.count(this.state.diveSiteCount);
             })
             .catch(error => {
                 this.setState({error: true})
-            })
+            });
+
     };
 
     updateLocationHandler =(locationkey, locationtype) => {
-        // console.log(locationkey, locationtype)
 
         if(locationtype == 'tags' || locationtype == 'types') {
     
@@ -50,7 +53,7 @@ class DiscoverContainer extends Component {
 
     };
 
-    findLocationHandler = (location) => {
+    getLocationCountHandler = (location) => {
         
         let locations = {
             'continent_count': 'continent',
@@ -69,15 +72,12 @@ class DiscoverContainer extends Component {
         if(location == 'tags' || location == 'types') {
             Axios.get('http://localhost:3000/api/' + location)
             .then(response => {
-            
-            this.setState({clickedLocations: response.data})
+                this.setState({clickedLocations: response.data})
         })
         .catch(error => console.log(error));
         } else {   
-            // if anything else
             Axios.get('http://localhost:3000/api/location/' + location)
             .then(response => {
-                console.log(response.data)
                 this.setState({clickedLocations: response.data})
             })
             .catch(error => console.log(error));
@@ -88,7 +88,6 @@ class DiscoverContainer extends Component {
     };
 
     render() {
-
         let discover = this.state.error ? <p>Can't load locations!</p> : null;
         let location = null;
         if(this.state.locations && this.state.diveSiteCount) {
@@ -96,7 +95,7 @@ class DiscoverContainer extends Component {
                 <Discover 
                 locations={ this.state.locations } 
                 divesites={ this.state.diveSiteCount } 
-                findlocation={ this.findLocationHandler }
+                findlocation={ this.getLocationCountHandler }
                 />
             )
         }

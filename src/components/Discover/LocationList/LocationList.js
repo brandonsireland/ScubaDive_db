@@ -3,7 +3,7 @@ import React from 'react';
 import LocationItem from './LocationItem/LocationItem';
 
 const location = (props) => {
-    console.log(props)
+
     let transformedLocations = Object.keys(props.locationdata)
             .map(locationKey => {
                 return [...Array(props.locationdata[locationKey])]
@@ -13,7 +13,7 @@ const location = (props) => {
                     divesitecount={keyValues[0].length}
                     key={keyValues[1]} 
                     title={keyValues[2]}
-                    updatelocationbykey={() => props.updatelocationbykey(keyValues[0], props.locationtype)}
+                    updatelocationbykey={() => props.updatelocationbykey(keyValues[1], props.locationtype)}
                     />
                 });
             });

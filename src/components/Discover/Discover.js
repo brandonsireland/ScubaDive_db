@@ -1,28 +1,12 @@
 import React from 'react';
-import DiscoverLocation from './DiscoverLocation/DiscoverLocation';
-import DiscoverDiveSite from './DiscoverDiveSite/DiscoverDiveSite';
+import DiscoverList from './DiscoverList/DiscoverList';
 
-const discover = (props) => {
-
-    let transformedValues = Object.values(props.locations);
-    let transformedLocations = Object.keys(props.locations)
-            .map((locationKey, i) => {
-                return <DiscoverLocation 
-                key={locationKey} 
-                location={locationKey} 
-                amount={transformedValues[i]} 
-                updatelocation={() => props.findlocation(locationKey)}/>
-            });
-
-    return (
-        <div className="Discover">
-        <DiscoverDiveSite count={ props.divesites} />
-            <ul>
-                { transformedLocations }
-            </ul>
-        </div>
-    )
+const discover = (props) => (
     
-}
+    <div className="Discover">
+        <DiscoverList {...props}/>
+    </div>
+
+);
 
 export default discover;

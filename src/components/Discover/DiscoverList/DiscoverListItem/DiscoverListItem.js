@@ -1,6 +1,6 @@
 import React from 'react';
 
-const discoverLocation = (props) => {
+const discoverListItem = (props) => {
     let label = null;
 
     switch(props.location) {
@@ -36,11 +36,11 @@ const discoverLocation = (props) => {
     }
 
     return (
-        <li className="DiscoverLocation" onClick={ props.updatelocation }>
+        <li className="DiscoverListItem" onClick={ props.updatelocation }>
             <span>{label}</span>
             <span>: {props.amount}</span>
         </li>
         )
 };
 
-export default discoverLocation;
+export default discoverListItem;
