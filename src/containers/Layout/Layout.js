@@ -14,17 +14,19 @@ class Layout extends Component {
         this.setState({diveSiteCount: count })
     };
 
+    updatePageTitleHandler = (title) => {
+        this.setState({pageTitle: title})
+    };
+
     render() {
         return (
-            <React.Fragment>
             <div className="Layout">
                 <div className="Layout__container">
                     <Toolbar/>
-                    <PageTitleCard title={this.state.title} count={this.state.diveSiteCount}/>
-                    <DiscoverContainer count={ this.updateDiveSiteCountHandler }  />
+                    <PageTitleCard title={ this.state.pageTitle } count={ this.state.diveSiteCount } />
+                    <DiscoverContainer updateTitle={ this.updatePageTitleHandler } updateCount={ this.updateDiveSiteCountHandler }/> 
                 </div>
             </div>
-            </React.Fragment>
         )
     }
 }
