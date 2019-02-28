@@ -5,8 +5,8 @@ import DiscoverListItem from './DiscoverListItem/DiscoverListItem';
 const discoverList = (props) => {
     
 
-    let transformedValues = Object.values(props.locations);
-    let transformedLocations = Object.keys(props.locations)
+    let transformedValues = Object.values(props.locationtypes);
+    let transformedLocations = Object.keys(props.locationtypes)
             .map((locationKey, i) => {
                 return <DiscoverListItem
                 key={locationKey} 

@@ -19,12 +19,12 @@ const location = (props) => {
             });
 
     return (
-    <div className="Location">
-        <div className="Location__container">
-            <div className="Location__title">
+    <div className="LocationList">
+        <div className="LocationList__container">
+            <div className="LocationList__title">
                 <span>{props.locationtype}</span>
             </div>
-            <ul className="Location__list">
+            <ul className="LocationList__list">
             <React.Fragment>
                 { transformedLocations }
             </React.Fragment>
