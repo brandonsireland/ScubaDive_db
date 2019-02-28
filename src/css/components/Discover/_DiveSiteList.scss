@@ -1,0 +1,17 @@
+.DiveSiteList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    > span {
+        text-align: center;
+        width: 100%;
+        font-size: 24px;
+        border-bottom: 3px solid $primary;
+        padding-bottom: 6px;
+    }
+    > ul {
+        padding: 20px 0;
+        list-style: none;
+    }
+}
