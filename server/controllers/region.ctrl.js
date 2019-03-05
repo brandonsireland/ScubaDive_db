@@ -5,7 +5,7 @@ const Region = require('../models/Region')
 // Get
 exports.get_all_regions = (req, res, next) => {
     // get all regions
-    Region.find({}, 'region divesites')
+    Region.find()
         .sort([
             ['region', 'ascending']
         ])

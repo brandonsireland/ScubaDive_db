@@ -24,7 +24,6 @@ class DiscoverContainer extends Component {
         }
     };
 
-
     componentDidMount() {
         Axios.get('http://localhost:3000/')
             .then(response => {
@@ -37,7 +36,7 @@ class DiscoverContainer extends Component {
             .catch(error => {
                 this.setState({error: true})
             });
-            console.log(this.state)
+            // console.log(this.state)
     };
 
     // Probably moved after implementing routing
@@ -79,7 +78,7 @@ class DiscoverContainer extends Component {
     // Probably moved after implementing routing
     updateLocalDataHandler = (key) => {
         let title = Object.values(key);
-        
+        // console.log(key)
         this.setState({
             local:{
                 divesiteCount: key.divesites.length, 

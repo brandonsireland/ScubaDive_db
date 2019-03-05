@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import PageTitleCard from '../../components/PageTitleCard/PageTitleCard';
@@ -22,9 +23,20 @@ class Layout extends Component {
         return (
             <div className="Layout">
                 <div className="Layout__container">
-                    <Toolbar/>
-                    <PageTitleCard title={ this.state.pageTitle } count={ this.state.diveSiteCount } />
-                    <DiscoverContainer updateTitle={ this.updatePageTitleHandler } updateCount={ this.updateDiveSiteCountHandler }/> 
+                    <Toolbar />
+                    <PageTitleCard
+                        title={ this.state.pageTitle } 
+                        count={ this.state.diveSiteCount }/>
+                    <Switch>
+                        <Route
+                            path="/discover"
+                            exact
+                            render={props => (
+                            <DiscoverContainer
+                                updateTitle={ this.updatePageTitleHandler } 
+                                updateCount={ this.updateDiveSiteCountHandler }/> 
+                            )} />
+                    </Switch>
                 </div>
             </div>
         )

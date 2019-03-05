@@ -8,6 +8,7 @@ const location = (props) => {
             .map(locationKey => {
                 return [...Array(props.locationdata[locationKey])]
                 .map((key, i , array) => {
+                    console.log(key)
                     let keyValues = Object.values(key);
                     let keyAmount = keyValues[0].length;
                     let keyId = keyValues[1];

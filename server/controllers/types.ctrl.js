@@ -7,7 +7,7 @@ const DiveSite = require('../models/DiveSite');
 // Get
 exports.get_all_types = (req, res) => {
     // get all types
-    Type.find({}, 'types divesites')
+    Type.find()
     .sort([
         ['types', 'ascending']
     ])
