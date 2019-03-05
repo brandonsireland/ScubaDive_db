@@ -10,5 +10,11 @@
             padding-bottom: 5px;
             font-weight: bold;
         }
+        &.active {
+            border-bottom: 5px solid $accent;
+            padding-bottom: 5px;
+            font-weight: bold;
+        }
     }
+    
 }
