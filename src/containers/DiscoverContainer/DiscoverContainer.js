@@ -3,7 +3,7 @@ import Axios from 'axios';
 
 import Discover from '../../components/Discover/Discover';
 import LocationList from '../../components/Discover/LocationList/LocationList';
-import DiveSiteList from '../../components/Discover/DiveSiteList/DiveSiteList';
+import DiveSiteList from '../../components/Discover/DiscoverList/DiscoverList';
 
 // statefull component
 class DiscoverContainer extends Component {

@@ -2,6 +2,11 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
+// god damn sass imports...
+const bourbon = require('bourbon').includePaths;
+const neat = require('bourbon-neat').includePaths;
+const normalize = require('node-normalize-scss').includePaths;
+
 module.exports = {
     output: {
       path: path.resolve(__dirname, 'public')
@@ -32,7 +37,10 @@ module.exports = {
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: true
+                sourceMap: true,
+                includePaths: [
+                  normalize, bourbon, neat
+                ]
               }
             }
           ]
