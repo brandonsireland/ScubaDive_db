@@ -39,7 +39,6 @@ class DiscoverContainer extends Component {
             // console.log(this.state)
     };
 
-    // Probably moved after implementing routing
     getLocationCountHandler = (location) => {
         
         let locations = {
@@ -65,7 +64,6 @@ class DiscoverContainer extends Component {
         } else {   
             Axios.get('http://localhost:3000/api/location/' + location)
             .then(response => {
-                console.log(response.data)
                 this.setState({locationType: response.data})
             })
             .catch(error => console.log(error));
