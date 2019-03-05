@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CityAddTwoSchema = new Schema( {
-    city_add_2: String,
+    title: String,
     divesites: [{
         type: Schema.Types.ObjectId,
         ref: 'DiveSiteModel'
@@ -11,6 +11,6 @@ const CityAddTwoSchema = new Schema( {
         type: Schema.Types.ObjectId,
         ref: 'CityAddModel'
     }
-});
+},{ timestamps: true});
 
 module.exports = mongoose.model('CityAddTwoModel', CityAddTwoSchema);
