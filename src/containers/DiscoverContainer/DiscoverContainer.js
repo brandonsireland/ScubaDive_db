@@ -9,28 +9,35 @@ import DiveSiteList from '../../components/Discover/DiveSiteList/DiveSiteList';
 class DiscoverContainer extends Component {
 
     state = {
-        diveSiteCount: null,
-        locationsTypes: null,
+        totalDiveSiteCount: null,
         error: false,
         showLocationTypes: false,
+        locationsTypes: null,
         locationType: null,
         locationTitle: null,
+        local :{
+            locationTitle: null,
+            divesiteCount: null,
+            divesites: [{
+                id: null,
+            }]
+        }
     };
 
 
     componentDidMount() {
         Axios.get('http://localhost:3000/')
             .then(response => {
-                this.setState({locationTypes: response.data, diveSiteCount: response.data.dive_site_count});
+                this.setState({locationTypes: response.data, totalDiveSiteCount: response.data.dive_site_count});
                 
                 //Updates PageTitleCard information with dive sites and title 
-                this.props.updateCount(this.state.diveSiteCount);
+                this.props.updateCount(this.state.totalDiveSiteCount);
                 this.props.updateTitle('DISCOVER');
             })
             .catch(error => {
                 this.setState({error: true})
             });
-
+            console.log(this.state)
     };
 
     // Probably moved after implementing routing
@@ -70,26 +77,17 @@ class DiscoverContainer extends Component {
     };
 
     // Probably moved after implementing routing
-    updateLocationHandler =(locationkey, locationtype) => {
-
-        if(locationtype == 'tags' || locationtype == 'types') {
-    
-            Axios.get('http://localhost:3000/api/' + locationtype + '/' + locationkey)
-                .then(response => {
-                    console.log(response.data)
-                })
-                .catch(error => console.log(error)) 
-
-        } else {
-            
-        Axios.get('http://localhost:3000/api/location/' + locationtype + '/' + locationkey)
-                .then(response => {
-                    console.log(response.data)         
-                })
-            .catch(error => console.log(error));
+    updateLocalDataHandler = (key) => {
+        let title = Object.values(key);
+        
+        this.setState({
+            local:{
+                divesiteCount: key.divesites.length, 
+                locationTitle: title[2], 
+                divesites:{...key.divesites}
             }
-
-    };
+        })
+    }
 
     render() {
         let discover = this.state.error ? <p>Can't load locations!</p> : null;
@@ -108,23 +106,26 @@ class DiscoverContainer extends Component {
             locationtypes = (
                 <LocationList
                 locationdata={ this.state.locationType } 
-                locationtype={ this.state.locationTitle } 
-                updatelocationbykey={ this.updateLocationHandler }
+                locationtype={ this.state.locationTitle }
+                updatelocaldata={ this.updateLocalDataHandler }
                 />
             )
         }
-        // if(true){
-        //     divesites = (
-        //         <DiveSiteList />
-        //     )
-        // }
+        if(this.state.local.divesiteCount){
+            // add to if && this.state.locationTitle
+            divesites = (
+                <DiveSiteList 
+                locationTitle={this.state.local.locationTitle}
+                divesiteCount={this.state.local.divesiteCount}
+                divesites={this.state.local.divesites} />
+            )
+        }
 
         return (
             <div className="DiscoverContainer">
                 { discover }
                 { locationtypes }
-                {/* { divesites } */}
-                <DiveSiteList />
+                { divesites }
             </div>
         )
     }

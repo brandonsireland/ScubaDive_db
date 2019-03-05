@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const async = require('async');
 
 const Type = require('../models/Types');
+const DiveSite = require('../models/DiveSite');
 
 // Get
 exports.get_all_types = (req, res) => {
@@ -19,13 +21,32 @@ exports.get_all_types = (req, res) => {
 
 exports.get_type_id = (req, res) => {
     // get type
-    Type.findById(req.params.typeId)
-        .exec((err, type) => {
-            if (err) {
-                return next(err)
-            }
-            res.send(type)
-    });
+    async.parallel({
+        type: function(callback){
+            Type.findById(req.params.typeId)
+                .exec(callback)
+        },
+        divesites: function(callback) {
+            DiveSite.find({'types': req.params.typeId})
+                .exec(callback)
+        }
+    }, function(err, results){
+        if (err) { return next(err); } // Error in API usage.
+        if (results.type==null) { // No results.
+            var err = new Error('Type not found');
+            err.status = 404;
+            return next(err);
+        }
+        res.send(results)
+    })
+    // Type.findById(req.params.typeId)
+    //     .populate('divesites')
+    //     .exec((err, type) => {
+    //         if (err) {
+    //             return next(err)
+    //         }
+    //         res.send(type)
+    // });
 };
 
 // Creation

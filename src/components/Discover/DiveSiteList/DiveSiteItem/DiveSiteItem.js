@@ -7,22 +7,22 @@ const diveSiteItem = (props) => {
         <React.Fragment>
         <li className="DiveSiteItem">
             <a>
-                <span>One Dive site</span>
+                <span>(Dive Site Name) in ( Dive Site Region )</span>
             </a>
         </li>
         <li className="DiveSiteItem">
             <a>
-                <span>One Dive site</span>
+                <span>(Dive Site Name) in ( Dive Site Region )</span>
             </a>
         </li>
         <li className="DiveSiteItem">
             <a>
-                <span>One Dive site</span>
+                <span>(Dive Site Name) in ( Dive Site Region )</span>
             </a>
         </li>
         <li className="DiveSiteItem">
             <a>
-                <span>One Dive site</span>
+                <span>(Dive Site Name) in ( Dive Site Region )</span>
             </a>
         </li>
     </React.Fragment>

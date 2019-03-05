@@ -7,13 +7,17 @@ const location = (props) => {
     let transformedLocations = Object.keys(props.locationdata)
             .map(locationKey => {
                 return [...Array(props.locationdata[locationKey])]
-                .map(key => {
-                    let keyValues = Object.values(key)
+                .map((key, i , array) => {
+                    let keyValues = Object.values(key);
+                    let keyAmount = keyValues[0].length;
+                    let keyId = keyValues[1];
+                    let keyTitle = keyValues[2];
                     return <LocationItem
-                    divesitecount={keyValues[0].length}
-                    key={keyValues[1]} 
-                    title={keyValues[2]}
-                    updatelocationbykey={() => props.updatelocationbykey(keyValues[1], props.locationtype)}
+                        divesitecount={keyAmount}
+                        key={keyId} 
+                        title={keyTitle}
+                        updatelocaldata ={() => props.updatelocaldata({...key}) }
+                        
                     />
                 });
             });
