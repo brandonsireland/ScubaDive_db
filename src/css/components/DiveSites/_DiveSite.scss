@@ -1,0 +1,22 @@
+$divesite-grid: (
+    columns: 12,
+    gutter: 2rem
+);
+
+.DiveSite {
+    @include grid-container;
+    // @include grid-visual;
+
+    &__container {
+        @include grid-column(12, $divesite-grid)
+    }
+    &__main {
+        border: 1px solid black;
+        @include grid-column(8, $divesite-grid)
+    }
+    &__sidebar {
+        // border: 1px solid red;
+        @include grid-column(4, $divesite-grid)
+    }
+
+}

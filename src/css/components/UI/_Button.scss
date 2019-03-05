@@ -1,0 +1,16 @@
+.Button {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background-color: $primary;
+    color: #fff;
+    border: none;
+    width: 150px;
+    border-radius: 4px;
+    &:hover {
+        cursor: pointer;
+        background-color: $secondary;
+        color: #555;
+    }
+}

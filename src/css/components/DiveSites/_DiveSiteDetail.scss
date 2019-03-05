@@ -1,0 +1,47 @@
+.DiveSiteDetail {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+
+    &__container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        width: 100%;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 0px 10px 6px 0px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+
+        span {
+            padding-bottom: 5px;
+            border-bottom: 3px solid $accent;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        width: 100%;
+        display: inline-flex;
+        flex-wrap: wrap;
+
+        li {
+            padding: 0 3px;
+
+            &:after {
+                content: ','
+            }
+
+            &:last-child {
+
+                &:after {
+                    content: ''
+                }
+            }
+        }
+    }
+}

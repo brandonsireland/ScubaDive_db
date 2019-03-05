@@ -5,14 +5,16 @@ import DiveSiteDescription from './DiveSiteDescription/DiveSiteDescription';
 import DiveSiteUpdateButton from './DiveSiteUpdateButton/DiveSiteUpdateButton';
 
 const diveSite = props => (
-    <div>
-        <div>
-            <DiveSiteImages />
-            <DiveSiteDetails />
-        </div>
-        <div>
-            <DiveSiteUpdateButton />
-            <DiveSiteDescription />
+    <div className="DiveSite">
+        <div className="DiveSite__container">
+            <div className="DiveSite__main">
+                <DiveSiteImages />
+                <DiveSiteDescription />
+            </div>
+            <div className="DiveSite__sidebar">
+                <DiveSiteUpdateButton />
+                <DiveSiteDetails />
+            </div>
         </div>
     </div>
 );
