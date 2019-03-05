@@ -1,11 +1,17 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const navigationItem = (props) => (
-    <li className="NavigationItem">
-        <a href={props.link}>
-            { props.children }
-        </a>
-    </li>
-);
+const navigationItem = (props) => {
+    // removes whitespace and lowercases links
+    let link = props.children.replace(/\s/g,'').toLowerCase();
+    
+    return (
+        <li className="NavigationItem">
+            <NavLink to={'/' + link}>
+                { props.children }
+            </NavLink>
+        </li>
+    )
+};
 
 export default navigationItem;

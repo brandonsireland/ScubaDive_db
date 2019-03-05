@@ -3,8 +3,8 @@ import NavigationItem from './NavigationItem/NavigationItem';
 
 const navigationItems = () => (
     <ul className="NavigationItems">
-        <NavigationItem link='/' active>Scuba Map</NavigationItem>
-        <NavigationItem link='/' active>Discover</NavigationItem>
+        <NavigationItem>Scuba Map</NavigationItem>
+        <NavigationItem>Discover</NavigationItem>
     </ul>
 );
 
