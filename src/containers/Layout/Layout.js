@@ -5,6 +5,7 @@ import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import PageTitleCard from '../../components/PageTitleCard/PageTitleCard';
 import DiscoverContainer from '../DiscoverContainer/DiscoverContainer';
 import DiveSiteContainer from '../DiveSiteContainer/DiveSiteContainer';
+import ScubaMapContainer from '../ScubaMapContainer/ScubaMapContainer';
 
 class Layout extends Component {
     state = {
@@ -30,6 +31,10 @@ class Layout extends Component {
                         count={ this.state.diveSiteCount }/>
                     <Switch>
                         <Route
+                            path="/scubamap"
+                            exact
+                            component={ ScubaMapContainer }/>
+                        <Route
                             path="/discover"
                             exact
                             render={props => (
@@ -41,7 +46,7 @@ class Layout extends Component {
                             path="/divesites"
                             exact
                             render={props => (
-                                <DiveSiteContainer />
+                                <DiveSiteContainer updateTitle={ this.updatePageTitleHandler }/>
                             )}/>
                     </Switch>
                 </div>

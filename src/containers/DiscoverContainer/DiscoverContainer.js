@@ -36,7 +36,6 @@ class DiscoverContainer extends Component {
             .catch(error => {
                 this.setState({error: true})
             });
-            // console.log(this.state)
     };
 
     getLocationCountHandler = (location) => {

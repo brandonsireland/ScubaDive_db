@@ -6,7 +6,6 @@ const location = (props) => {
     let transformedLocations = [];
     
     for(let i in props.locationdata){
-        console.log(props.locationdata[i])
         transformedLocations.push(
         <LocationItem
             divesitecount={props.locationdata[i]['divesites'].length}
