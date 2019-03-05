@@ -11,7 +11,6 @@ class DiveSiteContainer extends Component {
     render(){
         return (
             <div>
-                <h2>Dive Site Container</h2>
                 <DiveSites />
             </div>
         )

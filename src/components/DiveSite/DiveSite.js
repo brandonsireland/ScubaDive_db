@@ -4,10 +4,15 @@ import DiveSiteDetails from './DiveSiteDetails/DiveSiteDetails';
 import DiveSiteDescription from './DiveSiteDescription/DiveSiteDescription';
 import DiveSiteUpdateButton from './DiveSiteUpdateButton/DiveSiteUpdateButton';
 
-const diveSite = props => (
-    <div className="DiveSite">
+const diveSite = props => {
+
+    return (
+        <div className="DiveSite">
         <div className="DiveSite__container">
             <div className="DiveSite__main">
+                <div className="DiveSite__title">
+                    <span>This is the title</span>
+                </div>
                 <DiveSiteImages />
                 <DiveSiteDescription />
             </div>
@@ -17,6 +22,7 @@ const diveSite = props => (
             </div>
         </div>
     </div>
-);
+    )
+};
 
 export default diveSite;

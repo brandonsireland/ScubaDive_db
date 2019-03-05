@@ -1,0 +1,30 @@
+.DiveSiteDescription {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    &__container {
+        padding: 20px 0;
+    }
+    &__heading {
+        width: 100%;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 0 10px 6px 0;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ddd;
+        span {
+            padding-bottom: 5px;
+            border-bottom: 3px solid #5ab9ea;
+        }
+    }
+    &__text {
+        margin: 2px 0px;
+        padding: 0px;
+        margin-bottom: 5px;
+        span {
+        color: #666666;
+        font-size: 13px;
+        line-height: 22px;
+        }
+    }
+}
