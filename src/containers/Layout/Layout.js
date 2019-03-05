@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import PageTitleCard from '../../components/PageTitleCard/PageTitleCard';
 import DiscoverContainer from '../DiscoverContainer/DiscoverContainer';
+import DiveSiteContainer from '../DiveSiteContainer/DiveSiteContainer';
 
 class Layout extends Component {
     state = {
@@ -36,6 +37,12 @@ class Layout extends Component {
                                 updateTitle={ this.updatePageTitleHandler } 
                                 updateCount={ this.updateDiveSiteCountHandler }/> 
                             )} />
+                            <Route
+                            path="/divesites"
+                            exact
+                            render={props => (
+                                <DiveSiteContainer />
+                            )}/>
                     </Switch>
                 </div>
             </div>
