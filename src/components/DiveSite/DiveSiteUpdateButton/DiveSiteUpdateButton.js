@@ -3,7 +3,7 @@ import Button from '../../UI/Button/Button';
 
 const diveSiteUpdateButton = props => (
     <div className="DiveSiteUpdateButton">
-        <Button title="Submit Updates" />
+        <Button>Submit Changes</Button>
     </div>
 );
 

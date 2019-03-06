@@ -3,9 +3,9 @@ import DiveSiteImages from './DiveSiteImages/DiveSiteImages';
 import DiveSiteDetails from './DiveSiteDetails/DiveSiteDetails';
 import DiveSiteDescription from './DiveSiteDescription/DiveSiteDescription';
 import DiveSiteUpdateButton from './DiveSiteUpdateButton/DiveSiteUpdateButton';
+import DiveSiteMap from './DiveSiteMap/DiveSiteMap';
 
-const diveSite = props => {
-
+const diveSite = (props) => {
     return (
         <div className="DiveSite">
         <div className="DiveSite__container">
@@ -13,6 +13,7 @@ const diveSite = props => {
                 <div className="DiveSite__title">
                     <span>This is the title</span>
                 </div>
+                <DiveSiteMap {...props}/>
                 <DiveSiteImages />
                 <DiveSiteDescription />
             </div>
