@@ -43,10 +43,10 @@ class Layout extends Component {
                                 updateCount={ this.updateDiveSiteCountHandler }/> 
                             )} />
                             <Route
-                            path="/divesites"
+                            path="/divesite/:id"
                             exact
                             render={props => (
-                                <DiveSiteContainer updateTitle={ this.updatePageTitleHandler }/>
+                                <DiveSiteContainer {...props} updateTitle={ this.updatePageTitleHandler }/>
                             )}/>
                     </Switch>
                 </div>

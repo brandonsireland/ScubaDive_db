@@ -1,8 +1,8 @@
 import React from 'react';
 
 const diveSiteDescription = props => {
-
-    let descriptionText = props.descriptiontext ?<span>{ props.descriptiontext }</span> : <span>Sorry, no description available. If you have information regarding this dive site, please submit your changes here.</span>
+    
+    let descriptionText = props.description ?<span>{ props.description }</span> : <span>Sorry, no description available. If you have information regarding this dive site, please submit your changes.</span>
     
     return (
         <div className="DiveSiteDescription">

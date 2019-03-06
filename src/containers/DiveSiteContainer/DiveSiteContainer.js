@@ -1,33 +1,67 @@
 import React, { Component } from 'react';
-import DiveSites from '../../components/DiveSite/DiveSite';
+import DiveSite from '../../components/DiveSite/DiveSite';
+import Axios from 'axios';
 
 class DiveSiteContainer extends Component {
 
     state = {
         viewport: {
-          latitude: -12.472782814793,
-          longitude: -76.799411773682,
+          latitude: null,
+          longitude: null,
           zoom: 14,
           width: '100%',
           height: 500,
-        }
+        },
+        loadedDiveSite: null
     }
 
     componentDidMount(){
         // Sets Page Title card to correct title 
         this.props.updateTitle('DiveSites');
+        this.loadData();
+    }
+
+    componentDidUpdate(){
+        this.loadData();
     }
 
     updateViewPortHandler = (viewport) => {
         this.setState({viewport: viewport});
     }
+
+    loadData(){
+        if(this.props.match.params.id) {
+            // removes recursion of componentdidupdate
+            if(!this.state.loadedDiveSite || (this.state.loadedDiveSite && this.state.loadedDiveSite._id !== this.props.match.params.id)){
+                Axios.get('http://localhost:3000/api/divesite/' + this.props.match.params.id)
+                .then(response => {
+                    this.setState((prevState) =>({
+                        loadedDiveSite: response.data, 
+                        viewport: {
+                            ...prevState.viewport,
+                            latitude: response.data.geo_lat, 
+                            longitude: response.data.geo_long, 
+                        }
+                    })
+                    );
+                })
+            }
+        }
+    }
     
-    render(){
-        return (
-            <div>
-                <DiveSites {...this.state} updateViewPort={ this.updateViewPortHandler } />
-            </div>
-        )
+    render() {
+        let divesite = null;
+        if(this.props.match.params.id) {
+            divesite = <p>Loading!!!</p>
+        }
+        if(this.state.loadedDiveSite){
+            divesite = (
+                <div>
+                    <DiveSite {...this.state} updateViewPort={ this.updateViewPortHandler } />
+                </div>
+            )
+        }
+        return divesite;
     }
 };
 
