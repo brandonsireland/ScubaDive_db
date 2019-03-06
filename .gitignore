@@ -3,3 +3,6 @@
 
 # Database Credentials
 /server/config/*
+
+# environment variables
+.env

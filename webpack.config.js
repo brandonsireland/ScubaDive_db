@@ -1,13 +1,22 @@
+const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+const dotenv = require('dotenv');
 
 // god damn sass imports...
 const bourbon = require('bourbon').includePaths;
 const neat = require('bourbon-neat').includePaths;
 const normalize = require('node-normalize-scss').includePaths;
 
-module.exports = {
+module.exports = () =>{
+  const env = dotenv.config().parsed,
+    envKeys = Object.keys(env).reduce((prev, next) => {
+      prev[`process.env.${next}`] = JSON.stringify(env[next]);
+      return prev;
+    }, {});
+
+  return {
     output: {
       path: path.resolve(__dirname, 'public')
     },
@@ -44,6 +53,12 @@ module.exports = {
               }
             }
           ]
+        },
+        {
+          test: /\.(png|svg|jpg|gif)$/,
+          use: [
+          'file-loader'
+          ]
         }
       ]
     },
@@ -55,6 +70,8 @@ module.exports = {
         new MiniCssExtractPlugin({
           filename: './main.css',
         }),
+        new webpack.DefinePlugin(envKeys)
     ],
     devtool: 'source-map'
-  };
+  }
+};
