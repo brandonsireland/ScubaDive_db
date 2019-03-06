@@ -18,11 +18,9 @@ module.exports = {
 }
 ```
 
-Create file in config called mapbox.js
+Create file in root called .env to store dev environment variables.
 ```
-module.exports = {
-    access_token : 'YOUR_MAPBOX_KEY'
-}
+MAPBOX_TOKEN=<YOUR_ACCESS_TOKEN>
 ```
 
 Run the express server
