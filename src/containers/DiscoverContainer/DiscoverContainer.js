@@ -5,7 +5,6 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import LocationList from '../../components/Discover/LocationList/LocationList';
 import DiscoverList from '../../components/Discover/DiscoverList/DiscoverList';
 
-// statefull component
 class DiscoverContainer extends Component {
 
     state = {
@@ -14,14 +13,7 @@ class DiscoverContainer extends Component {
         showLocationTypes: false,
         locationsTypes: null,
         locationType: null,
-        locationTitle: null,
-        local :{
-            locationTitle: null,
-            divesiteCount: null,
-            divesites: [{
-                id: null,
-            }]
-        }
+        locationTitle: null
     };
 
     componentDidMount() {
@@ -73,16 +65,9 @@ class DiscoverContainer extends Component {
     };
 
     // Probably moved after implementing routing
-    updateLocalDataHandler = (key) => {
-        let title = Object.values(key);
-        // console.log(key)
-        this.setState({
-            local:{
-                divesiteCount: key.divesites.length, 
-                locationTitle: title[2], 
-                divesites:{...key.divesites}
-            }
-        })
+    getDiveSitesDataHandler = (key) => {
+
+        alert(key + 'feature coming soon!')
     }
 
     render() {
@@ -104,7 +89,7 @@ class DiscoverContainer extends Component {
                 <LocationList
                 locationdata={ this.state.locationType } 
                 locationtype={ this.state.locationTitle }
-                updatelocaldata={ this.updateLocalDataHandler }
+                getDiveSitesData={ this.getDiveSitesDataHandler }
                 />
             )
         }

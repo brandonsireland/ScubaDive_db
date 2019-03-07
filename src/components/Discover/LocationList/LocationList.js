@@ -3,15 +3,18 @@ import React from 'react';
 import LocationItem from './LocationItem/LocationItem';
 
 const location = (props) => {
+
     let transformedLocations = [];
     
     for(let i in props.locationdata){
+        console.log(props.locationdata[i]['_id'])
         transformedLocations.push(
         <LocationItem
             divesitecount={props.locationdata[i]['divesites'].length}
-            key={props.locationdata[i]['divesites']} 
+            key={props.locationdata[i]['_id']} 
             title={props.locationdata[i]['title']}
-            updatelocaldata ={() => props.updatelocaldata({...props.locationdata[i]}) }/>
+            id={props.locationdata[i]['_id']}
+            getDiveSites={ props.getDiveSitesData }/>
         )
     };
 
