@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
+import Spinner from '../../components/UI/Spinner/Spinner';
 import Discover from '../../components/Discover/Discover';
 import LocationList from '../../components/Discover/LocationList/LocationList';
 import DiveSiteList from '../../components/Discover/DiscoverList/DiscoverList';
@@ -89,6 +90,7 @@ class DiscoverContainer extends Component {
         let discover = this.state.error ? <p>Can't load locations!</p> : null;
         let locationtypes = null;
         let divesites = null;
+        let spinner = !this.state.locationTypes ? <Spinner /> : null;
 
         if(this.state.locationTypes) {
             discover = (
@@ -119,6 +121,7 @@ class DiscoverContainer extends Component {
 
         return (
             <div className="DiscoverContainer">
+                { spinner }
                 { discover }
                 { locationtypes }
                 { divesites }

@@ -32,8 +32,12 @@ class Layout extends Component {
                 <div className="Layout__container">
                     <Toolbar />
                     {pagetitle}
-                    <HeroVideo />
                     <Switch>
+                        <Route 
+                            path="/"
+                            exact
+                            component={ HeroVideo }/>
+                        />
                         <Route
                             path="/scubamap"
                             exact
