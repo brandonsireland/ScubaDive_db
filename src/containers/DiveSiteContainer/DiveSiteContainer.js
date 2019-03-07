@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DiveSite from '../../components/DiveSite/DiveSite';
 import Axios from 'axios';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 class DiveSiteContainer extends Component {
 
@@ -56,7 +57,7 @@ class DiveSiteContainer extends Component {
     render() {
         let divesite = null;
         if(this.props.match.params.id) {
-            divesite = <p>Loading!!!</p>
+            divesite = <Spinner/>
         }
         if(this.state.loadedDiveSite){
             divesite = (
