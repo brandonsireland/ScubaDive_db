@@ -9,7 +9,7 @@ exports.get_all_types = (req, res) => {
     // get all types
     Type.find()
     .sort([
-        ['types', 'ascending']
+        ['title', 'ascending']
     ])
     .exec((err, types) => {
         if (err) {

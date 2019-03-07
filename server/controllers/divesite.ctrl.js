@@ -20,11 +20,22 @@ exports.get_all_dive_sites = (req, res, next) => {
 exports.get_dive_site_id = (req, res, next) => {
         // get dive site by id
         DiveSite.findById(req.params.id)
-        .exec((err, country) => {
+        .populate({path:'continent', select: 'title'})
+        .populate({path:'country', select: 'title'})
+        .populate({path:'region', select: 'title'})
+        .populate({path:'city', select: 'title'})
+        .populate({path:'city_add', select: 'title'})
+        .populate({path:'city_add_2', select: 'title'})
+        .populate({path:'tags', select: 'title'})
+        .populate({path:'types', select: 'title'})
+        .populate({path:'dangers', select: 'title'})
+        .populate({path:'access', select: 'title'})
+        .populate({path:'exp_lvl', select: 'title'})
+        .exec((err, divesite) => {
             if (err) {
                 return next(err)
             }
-            res.send(country)
+            res.send(divesite)
         });
 };
 

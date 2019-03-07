@@ -7,7 +7,7 @@ exports.get_all_additionals = (req, res) => {
     // get all additional info
     CityAdd.find()
         .sort([
-            ['city_add', 'ascending']
+            ['title', 'ascending']
         ])
         .exec((err, additionals) => {
             if (err) {

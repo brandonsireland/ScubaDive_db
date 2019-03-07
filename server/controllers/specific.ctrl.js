@@ -6,7 +6,7 @@ exports.get_all_specifics = (req, res) => {
     // get all specifics
     CityAdd2.find()
         .sort([
-            ['city_add_2', 'ascending']
+            ['title', 'ascending']
         ])
         .exec((err, additionalsTwo) => {
             if (err) {

@@ -7,7 +7,7 @@ exports.get_all_continents = (req, res, next) => {
     // get all continents
     Continent.find()
         .sort([
-            ['continent', 'ascending']
+            ['title', 'ascending']
         ])
         .exec((err, continents) => {
             if (err) {

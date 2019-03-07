@@ -7,7 +7,7 @@ exports.get_all_cities = (req, res) => {
     // get all cities
     City.find()
         .sort([
-            ['city', 'ascending']
+            ['title', 'ascending']
         ])
         .exec((err, cities) => {
             if (err) {

@@ -7,7 +7,7 @@ exports.get_all_regions = (req, res, next) => {
     // get all regions
     Region.find()
         .sort([
-            ['region', 'ascending']
+            ['title', 'ascending']
         ])
         .exec((err, regions) => {
             if (err) {

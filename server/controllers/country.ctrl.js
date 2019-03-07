@@ -7,7 +7,7 @@ exports.get_all_countries = (req, res) => {
     // get all countries
     Country.find()
         .sort([
-            ['country', 'ascending']
+            ['title', 'ascending']
         ])
         .exec((err, countries) => {
             if (err) {

@@ -56,7 +56,7 @@ const DiveSiteSchema = new Schema( {
     }],
     images: [{ 
         type: Schema.Types.ObjectId, 
-        ref: 'AccessModel'
+        ref: 'ImagesModel'
     }],
     quality: Number,
     bio_lvl: Number,

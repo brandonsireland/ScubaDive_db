@@ -6,7 +6,7 @@ exports.get_all_tags = (req, res) => {
     // get all tags
     Tag.find()
     .sort([
-        ['tags', 'ascending']
+        ['title', 'ascending']
     ])
     .exec((err, tags) => {
         if (err) {
