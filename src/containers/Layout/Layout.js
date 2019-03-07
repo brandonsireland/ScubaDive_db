@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import PageTitleCard from '../../components/PageTitleCard/PageTitleCard';
+import HeroVideo from '../../components/HeroVideo/HeroVideo';
+import Footer from '../../components/Footer/Footer';
 import DiscoverContainer from '../DiscoverContainer/DiscoverContainer';
 import DiveSiteContainer from '../DiveSiteContainer/DiveSiteContainer';
 import ScubaMapContainer from '../ScubaMapContainer/ScubaMapContainer';
@@ -22,13 +24,15 @@ class Layout extends Component {
     };
 
     render() {
+    
+        let pagetitle = this.state.pageTitle ? <PageTitleCard title={ this.state.pageTitle } count={ this.state.diveSiteCount }/> : null;
+        // let herovideo
         return (
             <div className="Layout">
                 <div className="Layout__container">
                     <Toolbar />
-                    <PageTitleCard
-                        title={ this.state.pageTitle } 
-                        count={ this.state.diveSiteCount }/>
+                    {pagetitle}
+                    <HeroVideo />
                     <Switch>
                         <Route
                             path="/scubamap"
@@ -49,6 +53,7 @@ class Layout extends Component {
                                 <DiveSiteContainer {...props} updateTitle={ this.updatePageTitleHandler }/>
                             )}/>
                     </Switch>
+                    <Footer />
                 </div>
             </div>
         )
