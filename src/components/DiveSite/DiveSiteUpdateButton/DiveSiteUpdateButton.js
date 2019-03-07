@@ -2,9 +2,8 @@ import React from 'react';
 import Button from '../../UI/Button/Button';
 
 const diveSiteUpdateButton = props => (
-    <div className="DiveSiteUpdateButton">
-        <Button>Submit Changes</Button>
-    </div>
+    <Button className="DiveSiteUpdateButton" click={props.updateChanges } >Submit Changes</Button>
 );
+
 
 export default diveSiteUpdateButton;

@@ -15,18 +15,22 @@ class DiveSiteContainer extends Component {
         loadedDiveSite: null
     }
 
-    componentDidMount(){
+    componentDidMount() {
         // Sets Page Title card to correct title 
         this.props.updateTitle('DiveSites');
         this.loadData();
     }
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         this.loadData();
     }
 
     updateViewPortHandler = (viewport) => {
         this.setState({viewport: viewport});
+    }
+
+    updateDiveSiteChangeHandler = () => {
+        alert('Feature coming soon!');
     }
 
     loadData(){
@@ -57,7 +61,10 @@ class DiveSiteContainer extends Component {
         if(this.state.loadedDiveSite){
             divesite = (
                 <div>
-                    <DiveSite {...this.state} updateViewPort={ this.updateViewPortHandler } />
+                    <DiveSite 
+                    {...this.state} 
+                    updateViewPort={ this.updateViewPortHandler } 
+                    updateChanges={ this.updateDiveSiteChangeHandler }/>
                 </div>
             )
         }

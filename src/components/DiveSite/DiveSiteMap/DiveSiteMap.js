@@ -12,8 +12,8 @@ const navStyle = {
 };
 
 const diveSiteMap = props => {
-
-    const {viewport, updateViewPort} = props;
+    
+    const {viewport, updateViewPort, loadedDiveSite} = props;
     
     let style = {
         size: null,
@@ -40,7 +40,7 @@ const diveSiteMap = props => {
                 <NavigationControl onViewportChange={(viewport) => updateViewPort(viewport)}/>
             </div>
             <div>
-                <Marker latitude={viewport.latitude} longitude={viewport.longitude} offsetLeft={style.offset} offsetTop={style.offset}>
+                <Marker latitude={loadedDiveSite.geo_lat} longitude={loadedDiveSite.geo_long} offsetLeft={style.offset} offsetTop={style.offset}>
                     <Pin size={style.size}/>
                 </Marker>
             </div>

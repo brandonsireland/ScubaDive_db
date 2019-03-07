@@ -6,7 +6,7 @@ import DiveSiteUpdateButton from './DiveSiteUpdateButton/DiveSiteUpdateButton';
 import DiveSiteMap from './DiveSiteMap/DiveSiteMap';
 
 const diveSite = (props) => {
-
+   
     return (
         <div className="DiveSite">
         <div className="DiveSite__container">
@@ -19,7 +19,7 @@ const diveSite = (props) => {
                 <DiveSiteDescription {...props.loadedDiveSite}/>
             </div>
             <div className="DiveSite__sidebar">
-                <DiveSiteUpdateButton />
+                <DiveSiteUpdateButton updateChanges={ props.updateChanges }/>
                 <DiveSiteDetails {...props.loadedDiveSite}/>
             </div>
         </div>
