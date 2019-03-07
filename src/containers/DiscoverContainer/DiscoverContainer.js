@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 
 import Spinner from '../../components/UI/Spinner/Spinner';
-import Discover from '../../components/Discover/Discover';
 import LocationList from '../../components/Discover/LocationList/LocationList';
-import DiveSiteList from '../../components/Discover/DiscoverList/DiscoverList';
+import DiscoverList from '../../components/Discover/DiscoverList/DiscoverList';
 
 // statefull component
 class DiscoverContainer extends Component {
@@ -94,7 +93,7 @@ class DiscoverContainer extends Component {
 
         if(this.state.locationTypes) {
             discover = (
-                <Discover 
+                <DiscoverList 
                 locationtypes={ this.state.locationTypes } 
                 findlocation={ this.getLocationCountHandler }
                 />
@@ -109,22 +108,12 @@ class DiscoverContainer extends Component {
                 />
             )
         }
-        if(this.state.local.divesiteCount){
-            // add to if && this.state.locationTitle
-            divesites = (
-                <DiveSiteList 
-                locationTitle={this.state.local.locationTitle}
-                divesiteCount={this.state.local.divesiteCount}
-                divesites={this.state.local.divesites} />
-            )
-        }
 
         return (
             <div className="DiscoverContainer">
                 { spinner }
                 { discover }
                 { locationtypes }
-                { divesites }
             </div>
         )
     }

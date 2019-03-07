@@ -5,4 +5,11 @@
     h2 {
         padding-bottom: 20px;
     }
+    ul {
+        list-style: none;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
