@@ -1,9 +1,5 @@
+@import './ScubaMapContainer';
+
 .ScubaMap {
     width: 100%;
-    &__container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        padding: 40px 20px;
-    }
 }

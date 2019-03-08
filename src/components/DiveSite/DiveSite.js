@@ -6,7 +6,7 @@ import DiveSiteUpdateButton from './DiveSiteUpdateButton/DiveSiteUpdateButton';
 import DiveSiteMap from './DiveSiteMap/DiveSiteMap';
 
 const diveSite = (props) => {
-   
+//    console.log(props.loadedDiveSite.continent.title);
     return (
         <div className="DiveSite">
         <div className="DiveSite__container">

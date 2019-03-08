@@ -18,7 +18,7 @@ class DiveSiteContainer extends Component {
 
     componentDidMount() {
         // Sets Page Title card to correct title 
-        this.props.updateTitle('DiveSites');
+        this.props.updateTitle('DiveSite');
         this.loadData();
     }
 
@@ -50,6 +50,7 @@ class DiveSiteContainer extends Component {
                     })
                     );
                 })
+                .catch(err => console.log(err))
             }
         }
     }

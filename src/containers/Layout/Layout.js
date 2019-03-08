@@ -12,7 +12,7 @@ import ScubaMapContainer from '../ScubaMapContainer/ScubaMapContainer';
 class Layout extends Component {
     state = {
         pageTitle: null,
-        diveSiteCount: null
+        diveSiteCount: null,
     };
 
     updateDiveSiteCountHandler = (count) => {
@@ -26,7 +26,7 @@ class Layout extends Component {
     render() {
     
         let pagetitle = this.state.pageTitle ? <PageTitleCard title={ this.state.pageTitle } count={ this.state.diveSiteCount }/> : null;
-        // let herovideo
+
         return (
             <div className="Layout">
                 <div className="Layout__container">
@@ -54,7 +54,9 @@ class Layout extends Component {
                             path="/divesite/:id"
                             exact
                             render={props => (
-                                <DiveSiteContainer {...props} updateTitle={ this.updatePageTitleHandler }/>
+                                <DiveSiteContainer 
+                                {...props} 
+                                updateTitle={ this.updatePageTitleHandler } />
                             )}/>
                     </Switch>
                     <Footer />

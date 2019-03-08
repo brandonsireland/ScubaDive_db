@@ -29,10 +29,12 @@ const diveSiteMap = props => {
         style.size = 12;
         style.offset = -6;
     }
-    
+    console.log(viewport)
     return (
         <MapGL
             {...viewport}
+            minZoom={5}
+            maxZoom={17}
             onViewportChange={(viewport) => updateViewPort(viewport)}
             mapStyle="mapbox://styles/brandonsireland/cjswdecji833a1fqwy4hxl57r"
             mapboxApiAccessToken={accessToken}>
