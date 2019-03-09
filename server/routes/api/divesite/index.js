@@ -17,10 +17,9 @@ router.get('/:diveSiteId/update', diveSiteController.dive_site_update_get);
 router.post('/:diveSiteId/update', diveSiteController.dive_site_update_post);
 
 // Get Routes
-// api/divesite
 router.get('/', diveSiteController.get_all_dive_sites);
 
-// api/divesite/:id
 router.get('/:id', diveSiteController.get_dive_site_id);
+
 
 module.exports = router;

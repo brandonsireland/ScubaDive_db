@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-import ScubaMap from '../../components/ScubaMap/ScubaMap';
-import SearchForm from '../../components/UI/SearchForm/SearchForm';
+import {fromJS} from 'immutable';
+import {defaultMapStyle, dataLayer} from '../../components/ScubaMap/map-style.js';
 
+import ScubaMap from '../../components/ScubaMap/ScubaMap';
 
 class ScubaMapContainer extends Component {
 
@@ -14,21 +15,28 @@ class ScubaMapContainer extends Component {
           zoom: 5,
           width: '100%',
           height: 500,
-        },
-        diveSites: null,
+        }
     };
 
     mapRef = React.createRef();
     geocoderContainerRef = React.createRef();
-
+    
     componentDidMount(){
         if(!this.state.diveSites) {
-            Axios.get('http://localhost:3000/api/divesite/geo')
+            Axios.get('/src/assets/geodata/geoJSON.geojson')
                 .then(response => {
-                    this.setState({diveSites: response.data})
+                    this.loadData(response.data)
                 })
         } 
     };
+
+    loadData = (data) => {
+        const mapStyle = defaultMapStyle
+            .setIn(['sources', 'DiveSite'], fromJS({type: 'geojson', data}))
+            .set('layers', defaultMapStyle.get('layers').push(dataLayer));
+
+        this.setState({data, mapStyle});
+    }
 
     updateViewPortHandler = (viewport) => {
         this.setState({viewport: viewport});

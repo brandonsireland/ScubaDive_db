@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const stream = require('stream');
 const DiveSite = require('../models/DiveSite');
 
 // Get
@@ -13,6 +13,7 @@ exports.get_all_dive_sites = (req, res, next) => {
             if (err) {
                 return next(err)
             }
+            res.header("Content-Type",'application/json');
             res.send(divesites.map(divesite => divesite))
         });
 };
@@ -35,7 +36,8 @@ exports.get_dive_site_id = (req, res, next) => {
             if (err) {
                 return next(err)
             }
-            res.send(divesite)
+        res.header("Content-Type",'application/json');
+        res.send(divesite);
         });
 };
 

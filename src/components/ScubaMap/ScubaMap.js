@@ -1,8 +1,6 @@
 import React from 'react';
-import MapGL, { NavigationControl, Marker} from 'react-map-gl';
+import MapGL, { NavigationControl} from 'react-map-gl';
 import Geocoder from "react-map-gl-geocoder";
-
-import Pin from '../../components/DiveSite/DiveSitePin/DiveSitePin';
 
 const accessToken = process.env.MAPBOX_TOKEN;
 
@@ -15,20 +13,8 @@ const navStyle = {
 
 const scubaMap = props => {
 
-    const {viewport, updateViewPort, mapRef, diveSites } = props;
-    // console.log(diveSites)
-
-    const mapStyle = "mapbox://styles/brandonsireland/cjswdecji833a1fqwy4hxl57r"
-
-    let markers = [];
-
-    // Marker Key
-    // Object.keys({...diveSites}).map(key => {
-    //     // console.log(key)
-    //     let marker = Object.keys(diveSites[key]).map(what => console.log(what))
-    // })
-    
-
+    const {viewport, updateViewPort, mapRef, diveSites, mapStyle, data } = props;
+    console.log(data)
     return (
         <div className="ScubaMap">
             <MapGL
@@ -41,11 +27,6 @@ const scubaMap = props => {
                 mapboxApiAccessToken={accessToken}>
                 <div style={navStyle}>
                     <NavigationControl onViewportChange={(viewport) => updateViewPort(viewport)}/>
-                </div>
-                <div>
-                    <Marker latitude={viewport.latitude} longitude={viewport.longitude} offsetLeft={0} offsetTop={0}>
-                        <Pin/>
-                    </Marker>
                 </div>
                 <Geocoder
                 mapRef={mapRef}

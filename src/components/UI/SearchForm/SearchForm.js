@@ -1,9 +1,11 @@
 import React from 'react';
 
 const searchForm = props => {
+
     return(
         <div className="SearchForm">
-            <form>
+        <div ref={props.geocoderContainerRef}></div>
+            {/* <form>
                 <div className="SearchForm__group">
                     <label for="Search">Search Address</label>
                     <input type="text" id="Search" value="Enter a city & state, zip, or address"/>
@@ -20,7 +22,7 @@ const searchForm = props => {
                     </select>
                 </div>
                     <input type="submit" value="Search Divesites!"/>
-            </form>
+            </form> */}
         </div>
     )
 }
