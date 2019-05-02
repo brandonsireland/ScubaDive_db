@@ -5,7 +5,7 @@ import 'react-id-swiper/src/styles/css/swiper.css';
 import Image from '../Image/Image';
 
 const carousel = props => {
-console.log(props)
+
     let carouselItems = props ?
         Object.keys(props)
             .map(imageKey => {

@@ -1,13 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import LocationItem from './LocationItem/LocationItem';
 
 const location = (props) => {
-
+    console.log(props)
     let transformedLocations = [];
     
     for(let i in props.locationdata){
-        console.log(props.locationdata[i]['_id'])
         transformedLocations.push(
         <LocationItem
             divesitecount={props.locationdata[i]['divesites'].length}
@@ -34,4 +34,9 @@ const location = (props) => {
     )
 };
 
+location.propTypes = {
+    locationtype: PropTypes.string.isRequired,
+    locationdata: PropTypes.array.isRequired,
+    getDiveSitesData: PropTypes.func.isRequired
+}
 export default location;

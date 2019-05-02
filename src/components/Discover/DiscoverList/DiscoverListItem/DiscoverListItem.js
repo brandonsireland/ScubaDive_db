@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const discoverListItem = (props) => {
     let label = null;
@@ -42,5 +43,11 @@ const discoverListItem = (props) => {
         </li>
         )
 };
+
+discoverListItem.propTypes = {
+    location: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    updatelocation: PropTypes.func.isRequired
+}
 
 export default discoverListItem;
