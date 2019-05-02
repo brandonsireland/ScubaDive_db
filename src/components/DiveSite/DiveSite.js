@@ -1,26 +1,26 @@
 import React from 'react';
-import DiveSiteImages from './DiveSiteImages/DiveSiteImages';
 import DiveSiteDetails from './DiveSiteDetails/DiveSiteDetails';
 import DiveSiteDescription from './DiveSiteDescription/DiveSiteDescription';
 import DiveSiteUpdateButton from './DiveSiteUpdateButton/DiveSiteUpdateButton';
 import DiveSiteMap from './DiveSiteMap/DiveSiteMap';
+import Carousel from '../UI/Carousel/Carousel';
 
 const diveSite = (props) => {
-//    console.log(props.loadedDiveSite.continent.title);
+   
     return (
         <div className="DiveSite">
         <div className="DiveSite__container">
             <div className="DiveSite__main">
                 <div className="DiveSite__title">
-                    <span>{props.loadedDiveSite.title}</span>
+                    <span>{ props.loadedDiveSite.title }</span>
                 </div>
                 <DiveSiteMap {...props}/>
-                <DiveSiteImages />
-                <DiveSiteDescription {...props.loadedDiveSite}/>
+                <Carousel { ...props.loadedDiveSite.images }/>
+                <DiveSiteDescription { ...props.loadedDiveSite }/>
             </div>
             <div className="DiveSite__sidebar">
                 <DiveSiteUpdateButton updateChanges={ props.updateChanges }/>
-                <DiveSiteDetails {...props.loadedDiveSite}/>
+                <DiveSiteDetails { ...props.loadedDiveSite }/>
             </div>
         </div>
     </div>

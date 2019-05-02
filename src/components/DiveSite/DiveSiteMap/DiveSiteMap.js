@@ -29,7 +29,6 @@ const diveSiteMap = props => {
         style.size = 12;
         style.offset = -6;
     }
-    console.log(viewport)
     return (
         <MapGL
             {...viewport}

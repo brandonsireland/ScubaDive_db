@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const ImageSchema = new Schema( {
     title: String,
+    src: String,
     divesites: [{
         type: Schema.Types.ObjectId,
         ref: 'DiveSiteModel'
