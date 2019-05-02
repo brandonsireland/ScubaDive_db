@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
-
-const DiveSite = require('../models/DiveSite');
-
+const path = require('path');
+const fs = require('fs');
+const data = path.resolve(__dirname + '../../../src/assets/geodata/geoJSON.geojson')
 // Get for Geo Data
 exports.get_all_geo = (req, res, next) => {
     // get all geo
-    res.send('NOT IMPLEMENTED: geo all GET');
+    res.setHeader('Content-Type', 'application/json');
+    fs.createReadStream(data)
+    .pipe(res);
 };
 
 exports.get_geo_id = (req, res, next) => {

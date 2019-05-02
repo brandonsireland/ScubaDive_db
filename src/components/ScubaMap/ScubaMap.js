@@ -1,7 +1,6 @@
 import React from 'react';
-import MapGL, { NavigationControl} from 'react-map-gl';
+import MapGL, { NavigationControl } from 'react-map-gl';
 import Geocoder from "react-map-gl-geocoder";
-
 const accessToken = process.env.MAPBOX_TOKEN;
 
 const navStyle = {
@@ -13,8 +12,8 @@ const navStyle = {
 
 const scubaMap = props => {
 
-    const {viewport, updateViewPort, mapRef, diveSites, mapStyle, data } = props;
-    console.log(data)
+    const {viewport, updateViewPort, mapRef, mapStyle, clicked} = props;
+
     return (
         <div className="ScubaMap">
             <MapGL
@@ -24,6 +23,7 @@ const scubaMap = props => {
                 ref={mapRef}
                 onViewportChange={(viewport) => updateViewPort(viewport)}
                 mapStyle={mapStyle}
+                onClick={ (event) => clicked(event) }
                 mapboxApiAccessToken={accessToken}>
                 <div style={navStyle}>
                     <NavigationControl onViewportChange={(viewport) => updateViewPort(viewport)}/>

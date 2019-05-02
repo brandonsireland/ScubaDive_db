@@ -27,8 +27,12 @@ class ScubaMapContainer extends Component {
                 .then(response => {
                     this.loadData(response.data)
                 })
-        } 
+        }
+        // window.addEventListener('resize', this.resize )
     };
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.resize)
+    }
 
     loadData = (data) => {
         const mapStyle = defaultMapStyle
@@ -36,6 +40,13 @@ class ScubaMapContainer extends Component {
             .set('layers', defaultMapStyle.get('layers').push(dataLayer));
 
         this.setState({data, mapStyle});
+    };
+
+    _onClick = event => {
+        const { features } = event;
+        if(features[0].properties['_id']) {
+            this.props.history.push(`/divesite/${features[0].properties['_id']}`)
+        }
     }
 
     updateViewPortHandler = (viewport) => {
@@ -53,8 +64,8 @@ class ScubaMapContainer extends Component {
         return (
             <div className="ScubaMapContainer">
                 <div className="ScubaMapContainer__container">
-
-                    <ScubaMap 
+                    <ScubaMap
+                    clicked={(e) =>  this._onClick(e) } 
                     {...this.state} 
                     mapRef={this.mapRef} 
                     updateViewPort={ this.updateViewPortHandler } />
