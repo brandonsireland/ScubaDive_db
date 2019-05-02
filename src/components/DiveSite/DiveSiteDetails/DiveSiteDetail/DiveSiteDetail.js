@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const diveSiteDetail = props => {
-    
     let divesitedetails = null;
     
     if (props.details) {
@@ -33,5 +33,13 @@ const diveSiteDetail = props => {
         </div>
     )
 };
+
+diveSiteDetail.propTypes = {
+    title: PropTypes.string.isRequired,
+    details: PropTypes.arrayOf(PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired
+    }))
+}
 
 export default diveSiteDetail;

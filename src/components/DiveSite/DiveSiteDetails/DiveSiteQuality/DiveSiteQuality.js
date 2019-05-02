@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import star from '../../../../assets/markers/star.png';
 
 const diveSiteQuality = props => {
-    
     let qualityCount = [];
     
     for(let i = 0; i < props.quality ; i++){
@@ -23,6 +24,11 @@ const diveSiteQuality = props => {
             </div>
         </div>
         )
+};
+
+diveSiteQuality.propTypes = {
+    quality: PropTypes.number.isRequired, 
+    title: PropTypes.string.isRequired
 };
 
 export default diveSiteQuality;

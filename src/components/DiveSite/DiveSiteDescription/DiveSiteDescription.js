@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const diveSiteDescription = props => {
-    
+
     let descriptionText = props.description ?<span>{ props.description }</span> : <span>Sorry, no description available. If you have information regarding this dive site, please submit your changes.</span>
     
     return (
@@ -16,6 +17,10 @@ const diveSiteDescription = props => {
             </div>
         </div>
         )
+};
+
+diveSiteDescription.propTypes = {
+    description: PropTypes.string
 };
 
 export default diveSiteDescription;

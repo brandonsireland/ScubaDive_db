@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import MapGL, { NavigationControl, Marker } from 'react-map-gl';
 import Pin from '../DiveSitePin/DiveSitePin';
 
@@ -12,8 +14,8 @@ const navStyle = {
 };
 
 const diveSiteMap = props => {
-    
-    const {viewport, updateViewPort, loadedDiveSite} = props;
+
+    const { viewport, updateViewPort, loadedDiveSite } = props;
     
     let style = {
         size: null,
@@ -47,6 +49,13 @@ const diveSiteMap = props => {
             </div>
         </MapGL>
     );
+};
+
+diveSiteMap.propTypes = { 
+    loadedDiveSite: PropTypes.object.isRequired,
+    updateChanges: PropTypes.func.isRequired,
+    updateViewPort: PropTypes.func.isRequired,
+    viewport: PropTypes.object.isRequired
 }
 
 export default diveSiteMap;
